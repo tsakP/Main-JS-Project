@@ -3,7 +3,7 @@
 // 4.b start
 const sComputerPlay = function() {
     const arGameOptions = ["Rock", "Paper", "Scissors"];
-    let iComputerChoice = Math.floor(Math.random() * 3);
+    let iComputerChoice = Math.floor(Math.random() * arGameOptions.length);
     return arGameOptions[iComputerChoice];
 }
 // 4.b end
@@ -50,7 +50,7 @@ const sGame = function() {
         // scores update
         if (sRoundResult.startsWith("C")) iComputerScore++;
         if (sRoundResult.startsWith("P")) iPlayerScore++;
-        
+
         console.log(`${sRoundResult} \nPlayer Score: ${iPlayerScore}\tComputer Score: ${iComputerScore}`);
     }
     if (iComputerScore > iPlayerScore) console.log("🔴 Computer wins! 😢");
