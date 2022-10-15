@@ -12,17 +12,17 @@ const sComputerPlay = function() {
 // 4.c & 4.d start
 const sPlayRound = function(playerSelection, computerSelection) {
     // Making player & computer selection case-insensitive
-    let pSelection = playerSelection.toLowerCase();
-    let cSelection = computerSelection.toLowerCase();
-
+    let sPlayerSelection = playerSelection.toLowerCase();
+    let sComputerSelection = computerSelection.toLowerCase();
+    
     // Round Logic
-    if (pSelection == cSelection) return "It's a draw!"
-    if (pSelection == "rock" && cSelection == "paper") return "Computer wins the round! Paper beats Rock!";
-    if (pSelection == "paper" && cSelection == "rock") return "Player wins the round! Paper beats Rock!";
-    if (pSelection == "scissors" && cSelection == "rock") return "Computer wins the round! Rock beats Scissors!";
-    if (pSelection == "rock" && cSelection == "scissors") return "Player wins the round! Rock beats Scissors!";
-    if (pSelection == "paper" && cSelection == "scissors") return "Computer wins the round! Scissors beat paper!";
-    if (pSelection == "scissors" && cSelection == "paper") return "Player wins the round! Scissors beat paper!";
+    if (sPlayerSelection == sComputerSelection) return "It's a draw!"
+    if (sPlayerSelection == "rock" && sComputerSelection == "paper") return "Computer wins the round! Paper beats Rock!";
+    if (sPlayerSelection == "paper" && sComputerSelection == "rock") return "Player wins the round! Paper beats Rock!";
+    if (sPlayerSelection == "scissors" && sComputerSelection == "rock") return "Computer wins the round! Rock beats Scissors!";
+    if (sPlayerSelection == "rock" && sComputerSelection == "scissors") return "Player wins the round! Rock beats Scissors!";
+    if (sPlayerSelection == "paper" && sComputerSelection == "scissors") return "Computer wins the round! Scissors beat paper!";
+    if (sPlayerSelection == "scissors" && sComputerSelection == "paper") return "Player wins the round! Scissors beat paper!";
 }
 // 4.c & 4.d end
 
