@@ -10,9 +10,8 @@ const sComputerPlay = function() {
 
 // 4.c & 4.d start
 const sPlayRound = function(playerSelection, computerSelection) {
-    // Making player selection case-insensitive
+    // Making player & computer selection case-insensitive
     let pSelection = playerSelection.toLowerCase();
-    // Facilitating game logic 
     let cSelection = computerSelection.toLowerCase();
 
     // Round Logic
@@ -34,17 +33,24 @@ const sGame = function() {
 
     // Game Logic
     for (let i = 0; i < 5; i++) {
+        // 1st round message
         if (i == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
+        // last round message
         if (i == 4) console.log("This is the last round!");
+
         let sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
+        // Valid input check for player selection
         while (sPlayerSelection.toLowerCase() != "rock" && sPlayerSelection.toLowerCase() != "paper" 
         && sPlayerSelection.toLowerCase() != "scissors") {
             sPlayerSelection = prompt("⛔ Invalid input! Please try again!", "Rock, Paper or Scissors...?");
         }
+
         const sComputerSelection = sComputerPlay();
         let sRoundResult = sPlayRound(sPlayerSelection, sComputerSelection);
+        // scores update
         if (sRoundResult.startsWith("C")) iComputerScore++;
         if (sRoundResult.startsWith("P")) iPlayerScore++;
+        
         console.log(`${sRoundResult} \nPlayer Score: ${iPlayerScore}\tComputer Score: ${iComputerScore}`);
     }
     if (iComputerScore > iPlayerScore) console.log("🔴 Computer wins! 😢");
