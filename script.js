@@ -7,7 +7,6 @@ let playerSelection, computerSelection;
 const sPlayRound = function(playerSelection, computerSelection) {
     // Making player selection case-insensitive
     playerSelection = playerSelection.toLowerCase();
-    
     // Round Logic
     if (playerSelection == computerSelection) return "It's a draw!"
     if (
@@ -28,7 +27,6 @@ const sGame = function() {
     // Score variables declaration and initialization
     let iPlayerScore = 0,
     iComputerScore = 0;
-
     // Game Logic
     for (let round = 0; round < 5; round++) {
         // 1st and last round messages
@@ -54,16 +52,20 @@ const sGame = function() {
     if (iComputerScore < iPlayerScore) console.log("👏 You win! 🐱‍🚀");
     if (iComputerScore == iPlayerScore) console.log("💥 No way! It's a draw! 🤣");
 }
-// Play a game!
-sGame();
-//4.e end
 
-// Additional functionality: Wanna play another game? start
-let sPlayAnotherGame = prompt("Wanna play another one? 😎", "Type Yes or No..."); 
-
-while (sPlayAnotherGame.toLowerCase() == "yes") {
+const main = function() {
+    // Play a game!
     sGame();
-    sPlayAnotherGame = prompt("Wanna play another one? 😎", "Type Yes or No...");
-}
-// Additional functionality end
+    //4.e end
 
+    // Additional functionality: Wanna play another game? start
+    let sPlayAnotherGame = prompt("Wanna play another one? 😎", "Type Yes or No..."); 
+
+    while (sPlayAnotherGame.toLowerCase() == "yes") {
+        sGame();
+        sPlayAnotherGame = prompt("Wanna play another one? 😎", "Type Yes or No...");
+    }
+    // Additional functionality end
+}
+
+main();
