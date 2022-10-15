@@ -2,6 +2,7 @@
 
 // 4.b start
 const arGameOptions = ["Rock", "Paper", "Scissors"];
+let sPlayerSelection, sComputerSelection;
 
 const sComputerPlay = function() {    
     let iComputerChoice = Math.floor(Math.random() * arGameOptions.length);
@@ -12,8 +13,8 @@ const sComputerPlay = function() {
 // 4.c & 4.d start
 const sPlayRound = function(playerSelection, computerSelection) {
     // Making player & computer selection case-insensitive
-    let sPlayerSelection = playerSelection.toLowerCase();
-    let sComputerSelection = computerSelection.toLowerCase();
+    sPlayerSelection = playerSelection.toLowerCase();
+    sComputerSelection = computerSelection.toLowerCase();
     
     // Round Logic
     if (sPlayerSelection == sComputerSelection) return "It's a draw!"
