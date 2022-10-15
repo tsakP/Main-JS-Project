@@ -37,7 +37,7 @@ const sGame = function() {
         if (i == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
         if (i == 4) console.log("This is the last round!");
         let sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
-        while (sPlayerSelection.toLocaleLowerCase() != "rock" && sPlayerSelection.toLowerCase() != "paper" 
+        while (sPlayerSelection.toLowerCase() != "rock" && sPlayerSelection.toLowerCase() != "paper" 
         && sPlayerSelection.toLowerCase() != "scissors") {
             sPlayerSelection = prompt("⛔ Invalid input! Please try again!", "Rock, Paper or Scissors...?");
         }
