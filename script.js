@@ -35,9 +35,8 @@ const sGame = function() {
 
     // Game Logic
     for (let round = 0; round < 5; round++) {
-        // 1st round message
+        // 1st and last round messages
         if (round == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
-        // last round message
         if (round == 4) console.log("This is the last round!");
 
         sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
@@ -55,6 +54,7 @@ const sGame = function() {
 
         console.log(`${sRoundResult} \nPlayer Score: ${iPlayerScore}\tComputer Score: ${iComputerScore}`);
     }
+    
     if (iComputerScore > iPlayerScore) console.log("🔴 Computer wins! 😢");
     if (iComputerScore < iPlayerScore) console.log("👏 You win! 🐱‍🚀");
     if (iComputerScore == iPlayerScore) console.log("💥 No way! It's a draw! 🤣");
