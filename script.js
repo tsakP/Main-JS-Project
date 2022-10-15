@@ -39,7 +39,7 @@ const sGame = function() {
         // last round message
         if (round == 4) console.log("This is the last round!");
 
-        let sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
+        sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
         // Valid input check for player selection
         while (sPlayerSelection.toLowerCase() != "rock" && sPlayerSelection.toLowerCase() != "paper" 
         && sPlayerSelection.toLowerCase() != "scissors") {
