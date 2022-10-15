@@ -1,8 +1,9 @@
 // Main JS Project
 
 // 4.b start
-const sComputerPlay = function() {
-    const arGameOptions = ["Rock", "Paper", "Scissors"];
+const arGameOptions = ["Rock", "Paper", "Scissors"];
+
+const sComputerPlay = function() {    
     let iComputerChoice = Math.floor(Math.random() * arGameOptions.length);
     return arGameOptions[iComputerChoice];
 }
@@ -32,11 +33,11 @@ const sGame = function() {
     iComputerScore = 0;
 
     // Game Logic
-    for (let i = 0; i < 5; i++) {
+    for (let round = 0; round < 5; round++) {
         // 1st round message
-        if (i == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
+        if (round == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
         // last round message
-        if (i == 4) console.log("This is the last round!");
+        if (round == 4) console.log("This is the last round!");
 
         let sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
         // Valid input check for player selection
