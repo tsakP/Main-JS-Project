@@ -1,29 +1,25 @@
 // Main JS Project
 
-// 4.b start
-const arGameOptions = ["Rock", "Paper", "Scissors"];
-let sPlayerSelection, sComputerSelection;
-
-const sComputerPlay = function() {    
-    let iComputerChoice = Math.floor(Math.random() * arGameOptions.length);
-    return arGameOptions[iComputerChoice];
-}
-// 4.b end
+const gameOptions = ["rock", "paper", "scissors"];
+let playerSelection, computerSelection;
 
 // 4.c & 4.d start
 const sPlayRound = function(playerSelection, computerSelection) {
-    // Making player & computer selection case-insensitive
-    sPlayerSelection = playerSelection.toLowerCase();
-    sComputerSelection = computerSelection.toLowerCase();
+    // Making player selection case-insensitive
+    playerSelection = playerSelection.toLowerCase();
     
     // Round Logic
-    if (sPlayerSelection == sComputerSelection) return "It's a draw!"
-    if (sPlayerSelection == "rock" && sComputerSelection == "paper") return "Computer wins the round! Paper beats Rock!";
-    if (sPlayerSelection == "paper" && sComputerSelection == "rock") return "Player wins the round! Paper beats Rock!";
-    if (sPlayerSelection == "scissors" && sComputerSelection == "rock") return "Computer wins the round! Rock beats Scissors!";
-    if (sPlayerSelection == "rock" && sComputerSelection == "scissors") return "Player wins the round! Rock beats Scissors!";
-    if (sPlayerSelection == "paper" && sComputerSelection == "scissors") return "Computer wins the round! Scissors beat paper!";
-    if (sPlayerSelection == "scissors" && sComputerSelection == "paper") return "Player wins the round! Scissors beat paper!";
+    if (playerSelection == computerSelection) return "It's a draw!"
+    if (
+        playerSelection == "rock" && computerSelection == "paper" ||
+        playerSelection == "scissors" && computerSelection == "rock" ||
+        playerSelection == "paper" && computerSelection == "scissors"
+    ) return "Computer wins the round!";
+    if (
+        playerSelection == "paper" && computerSelection == "rock" ||
+        playerSelection == "rock" && computerSelection == "scissors" ||
+        playerSelection == "scissors" && computerSelection == "paper"
+    ) return "Player wins the round!";
 }
 // 4.c & 4.d end
 
@@ -39,22 +35,21 @@ const sGame = function() {
         if (round == 0) console.log("Welcome to RPS! \nGet ready to Rock..., or Paper..., or Scissors!");
         if (round == 4) console.log("This is the last round!");
 
-        sPlayerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?");
+        playerSelection = prompt("Make your choice: ", "Rock, Paper or Scissors...?").toLowerCase();
         // Valid input check for player selection
-        while (sPlayerSelection.toLowerCase() != "rock" && sPlayerSelection.toLowerCase() != "paper" 
-        && sPlayerSelection.toLowerCase() != "scissors") {
-            sPlayerSelection = prompt("⛔ Invalid input! Please try again!", "Rock, Paper or Scissors...?");
+        while (!gameOptions.includes(playerSelection)) {
+            playerSelection = prompt("⛔ Invalid input! Please try again!", "Rock, Paper or Scissors...?").toLowerCase();
         }
 
-        const sComputerSelection = sComputerPlay();
-        let sRoundResult = sPlayRound(sPlayerSelection, sComputerSelection);
+        computerSelection = gameOptions[Math.floor(Math.random() * gameOptions.length)];
+        let sRoundResult = sPlayRound(playerSelection, computerSelection);
         // scores update
         if (sRoundResult.startsWith("C")) iComputerScore++;
         if (sRoundResult.startsWith("P")) iPlayerScore++;
 
         console.log(`${sRoundResult} \nPlayer Score: ${iPlayerScore}\tComputer Score: ${iComputerScore}`);
     }
-    
+
     if (iComputerScore > iPlayerScore) console.log("🔴 Computer wins! 😢");
     if (iComputerScore < iPlayerScore) console.log("👏 You win! 🐱‍🚀");
     if (iComputerScore == iPlayerScore) console.log("💥 No way! It's a draw! 🤣");
